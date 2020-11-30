@@ -1,0 +1,10 @@
+Theme 1 ['boost' 'Knoxian' 'drawing' 'hybrid' 'Thunderbolt' 'difference'
+ 'reviewed' 'indication' 'verse' 'tag']
+Theme 2 ['Update' 'backordered' 'label' 'hold' 'Returns' 'sense' 'lasted'
+ 'Thankfully' 'exactly' 'depressing']
+Theme 3 ['defects' 'squeaking' 'disappointing' 'Dude' 'annoy' 'concerns' 'act'
+ 'total' 'told' 'Return']
+Theme 4 ['SPEAKERS' 'Ut' 'microSD' 'PACKAGING' 'Ethernet' 'move' 'updater'
+ 'TOUCHSCREEN' 'Awesome' 'Similar']
+Theme 5 ['favorite' 'completely' 'wedge' 'flash' 'Information' 'keeps' 'okay'
+ 'Bright' 'forth' 'midday']
