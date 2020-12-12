@@ -1,30 +1,30 @@
-Collection 1 Theme 1 ['PRICEY' 'Lo' 'FOR' 'que' 'pricey' 'SSDKIND' 'besides' 'amazons'
- 'fastness' 'resets']
-Collection 1 Theme 2 ['adore' 'fashion' 'giant' 'code' 'Ideal' 'Thanx' 'Shipping' 'happier'
- 'NEVER' 'semi']
-Collection 1 Theme 3 ['caveat' 'Couldnt' 'oriented' 'Airs' 'Super' 'places' 'restocking' 'Item'
- 'returning' 'happier']
-Collection 1 Theme 4 ['communicate' 'LOVES' 'distance' 'MAC' 'thinks' 'Zoom' 'friend' 'Crashes'
- 'Model' 'iPhones']
-Collection 1 Theme 5 ['programmers' 'jobs' 'Bye' 'messes' 'held' 'mother' 'LOVES' 'unsafe'
- 'tired' 'hotels']
-Collection 2 Theme 1 ['flimsy' 'pens' 'downfalls' 'Knoxian' 'outsides' 'watt' 'Boost'
- 'indicative' 'fuel' 'verse']
-Collection 2 Theme 2 ['information' 'Update' 'scheduled' 'carrier' 'Tennessee' 'weird' 'advise'
- 'Lebanon' 'draining' 'snap']
-Collection 2 Theme 3 ['Aug' 'annoy' 'Ubuntu' 'vanished' 'defects' 'n' 'bags' 'minute' 'Return'
- 'edutainment']
-Collection 2 Theme 4 ['environment' 'PORTS' 'converter' 'ACCESSORIES' 'giftable' 'PACKAGING'
- 'Headphone' 'suffices' 'hesitant' 'spare']
-Collection 2 Theme 5 ['jewel' 'Incredible' 'minimum' 'lots' 'Adobe' 'Pretty' 'richer' 'colors'
- 'arrows' 'theirs']
-Collection 3 Theme 1 ['recommendations' 'ventilation' 'involved' 'Enjoying' 'reception'
- 'appointed' 'Bamboo' 'Care' 'pair' 'progress']
-Collection 3 Theme 2 ['accidents' 'Would' 'seemingly' 'shutter' 'sticky' 'exceeded' 'mins'
- 'cracked' 'Pen' 'blame']
-Collection 3 Theme 3 ['promptly' 'reputation' 'Purchased' 'Terrible' 'posts' 'Had'
- 'Immediately' 'smoothie' 'Shipped' 'girlfriend']
-Collection 3 Theme 4 ['Loves' 'incredible' 'possibly' 'hearing' 'bargain' 'issued' 'Ut'
- 'satisficing' 'internal' 'LibreOffice']
-Collection 3 Theme 5 ['Minecraft' 'flip' 'doubt' 'kick' 'Sadly' 'Although' 'lying' 'freshman'
- 'outdoor' 'forth']
+Collection 1 Theme 1 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 1 Theme 2 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 1 Theme 3 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 1 Theme 4 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 1 Theme 5 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 2 Theme 1 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 2 Theme 2 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 2 Theme 3 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 2 Theme 4 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 2 Theme 5 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 3 Theme 1 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 3 Theme 2 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 3 Theme 3 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 3 Theme 4 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
+Collection 3 Theme 5 ['Apple' 'price' 'premium' 'portable' 'port' 'plastic' 'phone'
+ 'performance' 'opaque' 'on']
