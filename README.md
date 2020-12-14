@@ -1,6 +1,6 @@
 # CourseProject
 
-***********Link to Demo Video*************
+Link to Demo Video
 https://youtu.be/O_R6IzCWMGM
 ******************************************
 
