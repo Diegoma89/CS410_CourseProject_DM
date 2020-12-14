@@ -1,5 +1,9 @@
 # CourseProject
 
+***********Link to Demo Video*************
+https://youtu.be/O_R6IzCWMGM
+******************************************
+
 This is the course project for CS410 Fall 2020 at UIUC.
 The project intent is to reproduce a paper on contextual text mining, specifically the refence below.
 
