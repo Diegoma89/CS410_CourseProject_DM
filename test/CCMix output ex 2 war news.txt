@@ -1,0 +1,50 @@
+Common theme cluster 1
+['bin' 'laden' 'saudi' 'jihad' 'video' 'arabia' 'plot' 'family' 'father' 'authorities']
+[0.18939329 0.0981552  0.03564389 0.03239276 0.03145353 0.02699685 0.0189802  0.0143503  0.01357955 0.01339957]
+Cluster 1 - Collection: Afghanistan war
+['laden' 'saudi' 'recorded' 'sudan' 'yemen']
+[0.1028003  0.02914018 0.02332654 0.02035473 0.02033913]
+Cluster 1 - Collection: Iraq war
+['data' 'ritter' 'bowden' 'mi' 'dubious']
+[0.03806887 0.03382954 0.03000792 0.02535748 0.02112141]
+
+Common theme cluster 2
+['prisoners' 'prison' 'detainees' 'detention' 'ghraib' 'guards' 'executed' 'rights' 'amnesty' 'geneva']
+[0.12874343 0.08034044 0.03878431 0.02395434 0.02115945 0.02067663 0.01651596 0.01642986 0.01595376 0.01563221]
+Cluster 2 - Collection: Afghanistan war
+['treated' 'guantanamo' 'cuba' 'base' 'bay']
+[0.03936906 0.03658937 0.03625978 0.02769193 0.02742886]
+Cluster 2 - Collection: Iraq war
+['ghraib' 'abu' 'symbol' 'usa' 'photo']
+[0.07908194 0.07583343 0.02150438 0.01337695 0.01223926]
+
+Common theme cluster 3
+['blasts' 'spanish' 'aznar' 'seven' 'eta' 'king' 'policies' 'condolences' 'madrid' 'bombs']
+[0.03022417 0.02932321 0.02662327 0.02131074 0.01481973 0.01430479 0.01400754 0.0121993  0.01211067 0.01150711]
+Cluster 3 - Collection: Afghanistan war
+['cache' 'bank' 'demonstrators' 'imf' 'southeastern']
+[0.03169261 0.02730445 0.02130979 0.01598093 0.01584349]
+Cluster 3 - Collection: Iraq war
+['eta' 'trains' 'spain' 'express' 'karbala']
+[0.03305906 0.0198423  0.01936481 0.01058035 0.01055226]
+
+Common theme cluster 4
+['pentagon' 'cheney' 'wolfowitz' 'libya' 'europe' 'abroad' 'japan' 'controversial' 'vice' 'rumsfeld']
+[0.04913761 0.03856055 0.02993884 0.02717369 0.02278614 0.02217882 0.01865351 0.01719155 0.01598577 0.01430421]
+Cluster 4 - Collection: Afghanistan war
+['french' 'karachi' 'propaganda' 'black' 'bus']
+[0.06793751 0.05502965 0.03675501 0.03230034 0.02751049]
+Cluster 4 - Collection: Iraq war
+['wolfowitz' 'libya' 'japanese' 'gadhafi' 'dispatch']
+[0.06058456 0.05405023 0.02317438 0.02227723 0.01039494]
+
+Common theme cluster 5
+['the' 'of' 'to' 'that' 'and' 'in' 'is' 'was' 'a' 'we']
+[0.07975547 0.03963266 0.03214286 0.02182307 0.0187433  0.01801543 0.01676557 0.01557104 0.01537607 0.01396474]
+Cluster 5 - Collection: Afghanistan war
+['taliban' 'afghanistan' 'alliance' 'northern' 'kandahar']
+[0.08405706 0.03487229 0.03465308 0.03116097 0.02699336]
+Cluster 5 - Collection: Iraq war
+['iraq' 'saddam' 'iraqi' 'hussein' 'i']
+[0.04380953 0.0299254  0.02065532 0.01254649 0.00693652]
+

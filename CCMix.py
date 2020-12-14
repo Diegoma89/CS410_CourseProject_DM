@@ -41,6 +41,7 @@ class Corpus(object):
         self.topic_prob_background = [] # P(z | d, w, B)
         self.topic_prob_common = [] # P(z | d, w, C)
         self.topic_prob_specific = [] # P(z | d, w, j)
+        self.pseudo_prob = None
 
         self.number_of_documents = 0
         self.number_of_documents_collections = [] #documents per collection
@@ -59,7 +60,13 @@ class Corpus(object):
             self.documents_temp = []
             f = open(path, "r", encoding='utf8')
             for x in f:
-                doc = str(x)
+                doc = str(x).lower()
+                if "\x9d" in doc:
+                    doc = doc.replace("\x9d", " ")
+                #remove punctuation and digits
+                #translator = str.maketrans('', '', string.punctuation + string.digits)
+                #doc = doc.translate(translator)
+                #replace punctuation and digits with a space
                 table = doc.maketrans(string.punctuation + string.digits,' '*len(string.punctuation) + ' '*len(string.digits))
                 doc = doc.translate(table)
                 self.documents.append(doc.split())
@@ -68,7 +75,10 @@ class Corpus(object):
             self.number_of_documents_collections.append(len(self.documents_temp))
         
         self.number_of_documents = len(self.documents)
-        print(self.number_of_documents_collections)
+        #f = open("docsDell.txt", "w")
+        #for i in range(self.number_of_documents_collections[1]):
+            #f.write(str(self.documents_collections[1][i])+"\n\n")
+        #f.close()
         # #############################
 
 
@@ -87,7 +97,10 @@ class Corpus(object):
          
         self.vocabulary = np.unique(voc)
         self.vocabulary_size = len(self.vocabulary)
-        #print(self.vocabulary)
+        
+        f = open("vocabulary.txt", "w")
+        f.write(str(self.vocabulary))
+        f.close()
         # #############################
 
 
@@ -125,7 +138,10 @@ class Corpus(object):
         # your code here
         self.background_word_prob = np.sum(self.term_doc_matrix,axis=0)
         self.background_word_prob = self.background_word_prob/np.sum(self.term_doc_matrix)
-        
+
+        f = open("background.txt", "w")
+        f.write(str(self.vocabulary[(-self.background_word_prob).argsort()]))
+        f.close()
         # ############################
         
 
@@ -151,35 +167,11 @@ class Corpus(object):
         self.topic_common_word_prob = np.random.random_sample((number_of_topics, self.vocabulary_size))
         self.topic_common_word_prob = normalize(self.topic_common_word_prob)
 
+        #Initialize pseudo counts uniformly
+        self.pseudo_prob = np.ones((self.vocabulary_size))/self.vocabulary_size
+        #print(self.pseudo_prob)
         # ############################
 
-        
-
-    def initialize_uniformly(self, number_of_topics, number_of_collections):
-        """
-        Initializes the matrices: self.document_topic_prob and self.topic_word_prob with a uniform 
-        probability distribution. This is used for testing purposes.
-
-        DO NOT CHANGE THIS FUNCTION
-        """
-        self.document_topic_prob = np.ones((self.number_of_documents, number_of_topics))
-        self.document_topic_prob = normalize(self.document_topic_prob)
-
-        self.topic_word_prob = np.ones((number_of_collections, number_of_topics, len(self.vocabulary)))
-        self.topic_word_prob = np.divide(self.topic_word_prob, np.reshape(np.sum(self.topic_word_prob,axis=2),(number_of_collections, number_of_topics, 1)))
-
-        self.topic_common_word_prob = np.ones((number_of_topics, len(self.vocabulary)))
-        self.topic_common_word_prob = normalize(self.topic_common_word_prob)
-
-    def initialize(self, number_of_topics, number_of_collections, random=False):
-        """ Call the functions to initialize the matrices document_topic_prob and topic_word_prob
-        """
-        print("Initializing...")
-
-        if random:
-            self.initialize_randomly(number_of_topics, number_of_collections)
-        else:
-            self.initialize_uniformly(number_of_topics, number_of_collections) #not used
 
     def expectation_step(self, lambdaB, lambdaC, number_of_collections, number_of_topics):
         """ The E-step updates P(z | w, d)
@@ -188,13 +180,14 @@ class Corpus(object):
         
         # ############################
         # your code here
-        #Background model prob
+        
         self.topic_prob_background = [] # P(z | d, w, B)
         self.topic_prob_common = [] # P(z | d, w, C)
         self.topic_prob_specific = [] # P(z | d, w, j)
 
-        for i, col in enumerate(self.documents_collections):
-            topic_prob_num = np.zeros([self.number_of_documents_collections[i], self.vocabulary_size], dtype=np.float)
+        for i in range(number_of_collections):
+            #Background model prob (z)
+            topic_prob_num = np.zeros([self.number_of_documents_collections[i], self.vocabulary_size])
             topic_prob_num += lambdaB*self.background_word_prob
             topic_sum = lambdaC*self.topic_common_word_prob + (1-lambdaC)*self.topic_word_prob[i]
             topic_multiply = np.dot(self.document_topic_prob[i], topic_sum)
@@ -202,24 +195,36 @@ class Corpus(object):
             self.topic_prob_background.append((topic_prob_num)/topic_normalizer)
             
         
-            #collection specific model
-            topic_prob_num = np.zeros([self.number_of_documents_collections[i], number_of_topics, self.vocabulary_size], dtype=np.float)
+            #topic model prob 
+            topic_prob_num = np.zeros([self.number_of_documents_collections[i], number_of_topics, self.vocabulary_size])
             topic_prob_num += (lambdaC*self.topic_common_word_prob + (1-lambdaC)*self.topic_word_prob[i])
             topic_num = np.multiply(np.reshape(self.document_topic_prob[i], (self.number_of_documents_collections[i], number_of_topics, 1)), topic_prob_num)
+            #possible underflow
+            #undeflow_norm = (self.topic_common_word_prob + self.topic_word_prob[i])/2
+            #topic_num = topic_num / np.reshape(undeflow_norm, (1, number_of_topics, self.vocabulary_size))
+            ####
             topic_normalizer = np.sum(topic_num, axis=1)
             topic_divide = np.divide(topic_num, np.reshape(topic_normalizer, (self.number_of_documents_collections[i], 1, self.vocabulary_size)))
+            #topic_divide = np.nan_to_num(topic_divide)
             self.topic_prob_specific.append(topic_divide)
             
+            
 
-            #common topic model ***may not need to be duplicated across docs***
-            topic_prob_com = np.zeros([self.number_of_documents_collections[i], number_of_topics, self.vocabulary_size], dtype=np.float)
+            #common topic model prob 
+            topic_prob_com = np.zeros([self.number_of_documents_collections[i], number_of_topics, self.vocabulary_size])
             topic_prob_num = lambdaC*self.topic_common_word_prob
+            #possible underflow
+            #undeflow_norm = (self.topic_common_word_prob + self.topic_word_prob[i])/2
+            #topic_prob_num = topic_prob_num / undeflow_norm
+            #topic_normalizer = (topic_prob_num / undeflow_norm ) + (((1-lambdaC)*self.topic_word_prob[i]) / undeflow_norm)
+            ####
             topic_normalizer = topic_prob_num + ((1-lambdaC)*self.topic_word_prob[i])
             topic_prob_c = topic_prob_num/topic_normalizer
-            topic_prob_com += topic_prob_c
-            self.topic_prob_common.append(topic_prob_c)
-            print("nan")
-            print(topic_prob_c)
+            #topic_prob_c = np.nan_to_num(topic_prob_c)
+            topic_prob_com += topic_prob_c 
+            self.topic_prob_common.append(topic_prob_com)
+            #print("nan")
+            #print(topic_prob_c)
             
             
          
@@ -227,7 +232,7 @@ class Corpus(object):
 
             
 
-    def maximization_step(self, number_of_topics, number_of_collections):
+    def maximization_step(self, number_of_topics, number_of_collections, mu):
         """ The M-step updates P(w | z)
         """
         print("M step:")
@@ -236,8 +241,8 @@ class Corpus(object):
         
         # ############################
         # your code here
-        self.topic_common_word_prob = np.zeros([number_of_topics, self.vocabulary_size], dtype=np.float)
-        for i, col in enumerate(self.documents_collections):
+        self.topic_common_word_prob = np.zeros([number_of_topics, self.vocabulary_size])
+        for i in range(number_of_collections):
             #Update "pi's" values
             MStep_num = np.multiply(self.topic_prob_specific[i], np.reshape(self.term_doc_collections_matrix[i], (self.number_of_documents_collections[i], 1, self.vocabulary_size)))
             MStep_num = np.sum(MStep_num, axis=2)
@@ -253,11 +258,19 @@ class Corpus(object):
 
             #update specific topic word prob
             MStep_num = np.sum(term_temp * background_temp * self.topic_prob_specific[i] * (1 - self.topic_prob_common[i]), axis=0)
+            #add pseudo counts
+            MStep_num = MStep_num + (mu * np.reshape(self.pseudo_prob, (1, self.vocabulary_size)))
+            #######
             MStep_normalizer = np.sum(MStep_num, axis=1)
             self.topic_word_prob[i] = np.divide(MStep_num, np.reshape(MStep_normalizer, (number_of_topics, 1)))
+            
         
         #normalize topic common word probabilities
-        self.topic_common_word_prob = self.topic_common_word_prob/np.reshape(np.sum(self.topic_common_word_prob,axis=1),(number_of_topics, 1))
+        #add pseudo counts
+        self.topic_common_word_prob = self.topic_common_word_prob + (mu * np.reshape(self.pseudo_prob, (1, self.vocabulary_size)))
+        self.topic_common_word_prob = self.topic_common_word_prob/(np.reshape(np.sum(self.topic_common_word_prob,axis=1),(number_of_topics, 1)))
+        #print("norm pseudo")
+        #print(self.topic_common_word_prob)
         # ############################
 
 
@@ -272,10 +285,10 @@ class Corpus(object):
         # ############################
         # your code here
         likelihood_accum = 0
-        for i, col in enumerate(self.documents_collections):
-            sumlike = (lambdaC*self.topic_word_prob[i]) + ((1-lambdaC)*self.topic_common_word_prob)
+        for i in range(number_of_collections):
+            sumlike = (lambdaC*self.topic_common_word_prob) + ((1-lambdaC)*self.topic_word_prob[i])
             topicsum = (1-lambdaB) * np.dot(self.document_topic_prob[i], sumlike)
-            logBC = np.log(topicsum + np.reshape(self.background_word_prob, (1, self.vocabulary_size)))
+            logBC = np.log(np.reshape(lambdaB*self.background_word_prob, (1, self.vocabulary_size)) + topicsum)
             wordsum = np.sum(self.term_doc_collections_matrix[i] * logBC, axis=1)
             docsum = np.sum(wordsum)
             likelihood_accum += docsum
@@ -289,7 +302,7 @@ class Corpus(object):
         
 
 
-    def plsa(self, number_of_topics, max_iter, epsilon, number_of_collections, lambdaB, lambdaC):
+    def plsa(self, number_of_topics, max_iter, epsilon, number_of_collections, lambdaB, lambdaC, mu, documents_path):
 
         """
         Model topics.
@@ -305,10 +318,10 @@ class Corpus(object):
         # Create the counter arrays.
         
         # P(z | d, w)
-        self.topic_prob = np.zeros([self.number_of_documents, number_of_topics, self.vocabulary_size], dtype=np.float)
+        self.topic_prob = np.zeros([self.number_of_documents, number_of_topics, self.vocabulary_size])
 
         # P(z | d) P(w | z)
-        self.initialize(number_of_topics, number_of_collections, random=True)
+        self.initialize_randomly(number_of_topics, number_of_collections)
 
         # Run the EM algorithm
         current_likelihood = 0.0
@@ -319,28 +332,25 @@ class Corpus(object):
             # ############################
             # your code here
             self.expectation_step(lambdaB, lambdaC, number_of_collections, number_of_topics)
-            self.maximization_step(number_of_topics, number_of_collections)
+            self.maximization_step(number_of_topics, number_of_collections, mu)
             self.calculate_likelihood(number_of_topics, number_of_collections, lambdaB, lambdaC)
             print(self.likelihoods[-1])
             #print("maxi")
             #print(self.topic_common_word_prob[0])
-            #if(iteration>1):
-                #if(self.likelihoods[-1]-self.likelihoods[-2]<epsilon):
-                    #print ("Converged")
-                    #break
+            if(iteration>1):
+                if(self.likelihoods[-1]-self.likelihoods[-2] < epsilon and self.likelihoods[-1] > self.likelihoods[-2]):
+                    print ("Converged")
+                    break
 
-        
-        #write to file
-        f = open("common.txt", "w")
+
+        f = open("CCMix output.txt", "w")
         for i in range(number_of_topics):
-            f.write("Theme " + str(i+1) + " " + str(self.vocabulary[(-self.topic_common_word_prob[i]).argsort()[:10]])+"\n")
+            f.write("Common theme cluster " + str(i+1) + "\n" + str(self.vocabulary[(-self.topic_common_word_prob[i]).argsort()[:10]]) + "\n" + str(self.topic_common_word_prob[i][(-self.topic_common_word_prob[i]).argsort()[:10]]) + "\n")
+            for j in range(number_of_collections):
+                f.write("Cluster " + str(i+1) + " - Collection: " + str(documents_path[j])[5:-4] + "\n" + str(self.vocabulary[(-self.topic_word_prob[j][i]).argsort()[:5]]) +"\n" + str(self.topic_word_prob[j][i][(-self.topic_word_prob[j][i]).argsort()[:5]]) + "\n")
+            f.write("\n")
         f.close()
-
-        f = open("specific.txt", "w")
-        for i in range(number_of_collections):
-            for j in range(number_of_topics):
-                f.write("Collection " + str(i+1) + " Theme " + str(j+1) + " " + str(self.vocabulary[(-self.topic_word_prob[i][j]).argsort()[:10]])+"\n")
-        f.close()
+        
         
             # ############################
             
@@ -348,22 +358,24 @@ class Corpus(object):
 
 
 def main():
-    documents_path = ['data/test.txt', 'data/test2.txt', 'data/test3.txt']
-    #documents_path = ['data/apple.txt', 'data/dell.txt', 'data/lenovo.txt']
+    np.set_printoptions(edgeitems=9999, linewidth=9999)
+    #documents_path = ['data/test.txt', 'data/test2.txt', 'data/test3.txt']
+    documents_path = ['data/apple.txt', 'data/dell.txt', 'data/lenovo.txt']
+    #documents_path = ['data/Afghanistan war.txt', 'data/Iraq war.txt']
     corpus = Corpus(documents_path)  # instantiate corpus
     corpus.build_corpus()
     corpus.build_vocabulary()
-    np.set_printoptions(edgeitems=9999)
     print(corpus.vocabulary)
     print("Vocabulary size:" + str(len(corpus.vocabulary)))
     print("Number of documents:" + str(len(corpus.documents)))
     number_of_topics = 5
-    number_of_collections = 3
-    max_iterations = 35
+    number_of_collections = len(documents_path)
+    max_iterations = 1000
     epsilon = 0.001
-    lambdaB = 0.95
-    lambdaC = 0.7
-    corpus.plsa(number_of_topics, max_iterations, epsilon, number_of_collections, lambdaB, lambdaC)
+    lambdaB = 0.98
+    lambdaC = 0.8
+    mu = 1
+    corpus.plsa(number_of_topics, max_iterations, epsilon, number_of_collections, lambdaB, lambdaC, mu, documents_path)
 
 
 

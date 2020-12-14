@@ -1,0 +1,65 @@
+Common theme cluster 1
+['product' 'user' 'automatically' 'account' 'suite' 'unchecked' 'installation' 'choice' 're' 'excellent']
+[0.07466582 0.05572598 0.03232011 0.03096832 0.02268974 0.02222524 0.02193019 0.02187491 0.02165431 0.01872674]
+Cluster 1 - Collection: apple
+['friendly' 'apples' 'platform' 'butterfly' 'rendering']
+[0.13794781 0.0688383  0.06671191 0.06255333 0.06255333]
+Cluster 1 - Collection: dell
+['language' 'subscribing' 'approximately' 'interested' 're']
+[0.02404427 0.01987423 0.01942481 0.01913671 0.01855218]
+Cluster 1 - Collection: lenovo
+['seller' 'promptly' 'rip' 'issued' 'total']
+[0.25018074 0.11838861 0.11080529 0.09258869 0.06769245]
+
+Common theme cluster 2
+['called' 'hinge' 'care' 'cannot' 'refund' 'waited' 'cracked' 'worst' 'premium' 'asked']
+[0.07134034 0.04386005 0.04363011 0.04347786 0.04145478 0.03986627 0.03931913 0.0389637  0.03097263 0.02935845]
+Cluster 2 - Collection: apple
+['gold' 'rose' 'lowest' 'roblox' 'crashes']
+[0.16845535 0.11348422 0.08240443 0.08240443 0.08053783]
+Cluster 2 - Collection: dell
+['heats' 'minimal' 'ps' 'inconvenience' 'defective']
+[0.0570911  0.05120979 0.02980204 0.02932789 0.02897707]
+Cluster 2 - Collection: lenovo
+['cracked' 'mins' 'escalated' 'shutter' 'length']
+[0.1385653  0.05560235 0.05377325 0.03537738 0.0334771 ]
+
+Common theme cluster 3
+['our' 'son' 'his' 'boost' 'verse' 'mb' 'speeds' 'drawing' 'hate' 'capabilities']
+[0.06222393 0.03787781 0.02807934 0.02493898 0.01991986 0.01970013 0.01968949 0.0148176  0.01147994 0.00981045]
+Cluster 3 - Collection: apple
+['lives' 'grades' 'iphones' 'ridiculously' 'deleted']
+[0.07629556 0.06177678 0.06050614 0.05818559 0.0581803 ]
+Cluster 3 - Collection: dell
+['boost' 'speeds' 'mb' 'capacitive' 'resistance']
+[0.00876378 0.00806168 0.00801987 0.00792301 0.00746415]
+Cluster 3 - Collection: lenovo
+['loves' 'ut' 'expectations' 'exceeded' 'greatest']
+[0.21151967 0.14629859 0.13692706 0.13692706 0.11706195]
+
+Common theme cluster 4
+['i' 'it' 'the' 'is' 'a' 'and' 'this' 'to' 'that' 'you']
+[0.03826518 0.03729242 0.0346196  0.02619614 0.0218523  0.02141107 0.01905533 0.01780376 0.0175     0.01666027]
+Cluster 4 - Collection: apple
+['apple' 'air' 'happier' 'grainy' 'god']
+[0.08361306 0.0163502  0.01305754 0.0124118  0.00904935]
+Cluster 4 - Collection: dell
+['xps' 'gaming' 'storage' 'uhd' 'graphics']
+[0.0125889  0.00877796 0.00812639 0.00695383 0.00692576]
+Cluster 4 - Collection: lenovo
+['lenovo' 'yoga' 'ventilation' 'bestbuy' 'exact']
+[0.08084866 0.03144046 0.02425386 0.02051237 0.01082263]
+
+Common theme cluster 5
+['chrome' 'resolution' 'dock' 'shell' 'none' 'external' 'processing' 'owners' 'bootup' 'productivity']
+[0.08213866 0.04566475 0.03876142 0.03660957 0.03014255 0.02945453 0.0272522  0.02373049 0.02340485 0.02194174]
+Cluster 5 - Collection: apple
+['hunt' 'interesting' 'resolutions' 'purchasers' 'productivity']
+[0.03332955 0.03122959 0.03048468 0.02520091 0.0250679 ]
+Cluster 5 - Collection: dell
+['visit' 'scheduled' 'backordered' 'efforts' 'painful']
+[0.10488292 0.06979179 0.06979179 0.05089162 0.05089162]
+Cluster 5 - Collection: lenovo
+['mobility' 'unimaginable' 'tier' 'shifts' 'posts']
+[0.08353341 0.08121147 0.08121147 0.07411348 0.07411348]
+

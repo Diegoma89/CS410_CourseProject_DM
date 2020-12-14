@@ -1,0 +1,59 @@
+Common theme cluster 1
+['got' 'like' 'chapter' 'critical' 'convince' 'probably' 'operational'
+ 'thing' 'properly' 'sons']
+[0.08483367 0.08432824 0.03539458 0.03305635 0.02670326 0.02177447
+ 0.02014738 0.0188087  0.01871678 0.0184837 ]
+Cluster 1 - Collection: Afghanistan war
+['you' 've' 'tribal' 're' 'peacekeeping']
+[0.09716945 0.03350053 0.03180861 0.02290901 0.02212601]
+Cluster 1 - Collection: Iraq war
+['duri' 'devil' 'baathists' 'infantry' 'rockefeller']
+[0.01599502 0.01103383 0.01086015 0.01018716 0.00867517]
+
+Common theme cluster 2
+['the' 'in' 'said' 'that' 'of' 'he' 'to' 'is' 'was' 's']
+[0.05784577 0.03357781 0.0322694  0.02966477 0.02619809 0.02391525
+ 0.01816123 0.01583472 0.0142026  0.0119228 ]
+Cluster 2 - Collection: Afghanistan war
+['taliban' 'afghanistan' 'laden' 'bin' 'alliance']
+[0.0673233  0.03429556 0.03370626 0.03321351 0.02565544]
+Cluster 2 - Collection: Iraq war
+['iraq' 'saddam' 'iraqi' 'hussein' 'i']
+[0.04474814 0.02656827 0.01908895 0.01265143 0.01020351]
+
+Common theme cluster 3
+['prisoners' 'prison' 'detainees' 'rights' 'detention' 'amnesty' 'cells'
+ 'kept' 'watch' 'scandal']
+[0.22824681 0.13942196 0.07067099 0.04128762 0.03975224 0.02913151
+ 0.02527702 0.02232358 0.02165427 0.02136821]
+Cluster 3 - Collection: Afghanistan war
+['treated' 'guantanamo' 'cuba' 'bay' 'base']
+[0.03240776 0.0271242  0.02639756 0.02049605 0.01975695]
+Cluster 3 - Collection: Iraq war
+['ghraib' 'abu' 'symbol' 'guards' 'usa']
+[0.06129351 0.05504042 0.01689784 0.01624697 0.01143668]
+
+Common theme cluster 4
+['perfect' 'stepped' 'tanks' 'dominated' 'kit' 'piece' 'hospital' 'buy'
+ 'zone' 'funds']
+[0.03761156 0.02863579 0.02126407 0.01924639 0.01902237 0.01727665
+ 0.01594341 0.01422531 0.01363877 0.01057692]
+Cluster 4 - Collection: Afghanistan war
+['karzai' 'ceremony' 'hamid' 'bourgeois' 'reeve']
+[0.05752905 0.02880136 0.01965415 0.01934487 0.01594732]
+Cluster 4 - Collection: Iraq war
+['kit' 'clothing' 'bowden' 'nbc' 'desert']
+[0.01845425 0.01669997 0.01554123 0.01232147 0.01208548]
+
+Common theme cluster 5
+['post' 'diplomat' 'topple' 'highway' 'influence' 'hopes' 'policies'
+ 'current' 'matters' 'occupation']
+[0.03111316 0.02588777 0.02254871 0.02106256 0.02091702 0.01890663
+ 0.01878186 0.01771812 0.01673007 0.01461597]
+Cluster 5 - Collection: Afghanistan war
+['masood' 'cache' 'burhanuddin' 'southeastern' 'rabbani']
+[0.03505321 0.03448133 0.01925065 0.01723919 0.0167293 ]
+Cluster 5 - Collection: Iraq war
+['wolfowitz' 'settlement' 'ambassadors' 'david' 'andrew']
+[0.06191597 0.01367937 0.01122824 0.00957316 0.00902251]
+

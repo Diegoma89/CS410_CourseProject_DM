@@ -1,0 +1,26 @@
+Theme 1
+['kit' 'wolfowitz' 'clothing' 'nbc' 'desert' 'buy' 'equipment' 'logistics']
+[0.03732396 0.03374832 0.02093988 0.01928082 0.01928082 0.01456099
+ 0.0134511  0.01285444]
+
+Theme 2
+['ghraib' 'abu' 'symbol' 'prison' 'guards' 'photo' 'demolished' 'usa']
+[0.06427516 0.04786124 0.02022767 0.01926176 0.01506055 0.01155932
+ 0.01155932 0.00924312]
+
+Theme 3
+['sarin' 'shell' 'nerve' 'neill' 'bowden' 'filled' 'agent' 'o']
+[0.0378052  0.03047289 0.02514473 0.02077332 0.01689814 0.0160316
+ 0.014525   0.01379502]
+
+Theme 4
+['taliban' 'al' 'laden' 'bin' 'alliance' 'northern' 'he' 'hussein']
+[0.01549612 0.00955844 0.00785728 0.00769362 0.00731475 0.00660803
+ 0.00560289 0.00552075]
+
+Theme 5
+['eta' 'propaganda' 'black' 'trains' 'legality' 'undermine' 'planting'
+ 'options']
+[0.03331262 0.02464671 0.01716214 0.0166588  0.01129754 0.01129754
+ 0.01129754 0.01129754]
+
